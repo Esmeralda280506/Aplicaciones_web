@@ -1,0 +1,105 @@
+body{
+    background-color: rgb(107, 124, 109);
+}
+
+/* Título Principal */
+h1 {
+    text-align: center;
+    color: #c2e693;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+/* Contenedor Grid */
+#contenedor-servicios {
+    display:grid;
+    /* Crea columnas que se ajustan solas (mínimo 450px de ancho cada tarjeta) */
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 15px; /* Espacio entre tarjetas */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Tarjeta de servicios */
+.servicios-tarjeta{
+    background-color: #ffffff;
+    border: 2px solid #e0c9a6; /* Color del borde */
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px;
+    max-width: 550px;
+    
+    display: grid; 
+    align-items: center; 
+    flex-direction:row-reverse; 
+    
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+.servicios-tarjeta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    border-color: #c9ba78; /* Oscurece un poco el borde */
+}
+/* Imagenes */
+.servicios-tarjeta img {
+    width: 350px;       /* Tamaño */
+    height: 350px;      
+    object-fit: contain; /* Evita que la imagen se deforme */
+    margin-right: 20px;  /* Espacio entre la foto y el texto */
+    border-radius: 8px;
+    border: 1px solid #f0f0f0; /* Un borde sutil en la foto */
+    background-color: #fff;
+    flex-shrink: 0; /* Evita que la imagen se aplaste si hay mucho texto */
+}
+
+.titulo-servicio {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #131212;
+    margin: 5px 0 5px 0; /* Margen inferior pequeño */
+}
+
+/* Estilo para la descripción */
+.descripcion {
+    font-size: 0.9rem;
+    color: #424141;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+button{
+    background-color: #2d933b;  /* color del boton */
+    color: white;              /* Texto blanco */
+    border: none;              /* Sin bordes */
+    padding: 12px 30px;        
+    font-size: 1.1rem;         /* Texto un poco más grande */
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif; /*Funte de texto */
+    border-radius: 50px;       
+    cursor: pointer;           /* Manita al pasar el mouse */
+    
+    /* Centrado del botón */
+    display: block;
+    margin: 0 auto 30px auto;  /* Centrado horizontal y margen abajo */
+    
+     /* Animación suave */
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    background-color: #0c5a16; /* Verde más oscuro */
+    transform: scale(1.05);    /* se hace un poco mas grande */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Efecto al hacer clic */
+button:active {
+    transform: scale(0.95);   
+}
+
