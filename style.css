@@ -6,10 +6,9 @@
 }
 
 body {
-    background-color: #869fdf;
+    background: linear-gradient(180deg, #8fa5e3, #aab8f5);
     color: #333;
 }
-
 header {
     background: linear-gradient(135deg, #6a5acd, #b39ddb);
     color: white;
@@ -40,22 +39,26 @@ main {
 }
 
 .card {
-    background-color: white;
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 
+        0 0 0 2px rgba(138, 121, 255, 0.4),
+        0 12px 30px rgba(0, 0, 0, 0.12);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+    box-shadow: 
+        0 0 0 3px rgba(138, 121, 255, 0.7),
+        0 0 20px rgba(138, 121, 255, 0.6),
+        0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #6a5acd;
 }
 
 .card p {
@@ -64,13 +67,19 @@ main {
     margin-bottom: 15px;
 }
 
+.card a {
+    text-decoration: none;
+    color: blue;
+    display: block;
+}
+
 footer {
-    text-align: center;
-    padding: 25px 15px;
     background-color: #fff;
-    margin-top: 50px;
+    color: #666;
+    padding: 20px;
+    margin-top: 40px;
     font-size: 0.85rem;
-    color: #777;
+    text-align: center;
 }
 h2{
     font-family: 'Times New Roman', Times, serif;
