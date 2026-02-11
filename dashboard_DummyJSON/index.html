@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard administrativo DummyJSON</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <input type="text" id="buscador" placeholder="Buscar producto...">
+        <button id="btnBuscar">Buscar</button>
+        <button href="add.html" id="btn-add"> Nuevo Producto </button>
+    </header>
+    <section class="filtros">
+
+        <select id="categorias">
+            <option value="">Todas las categorias </option>
+        </select>
+
+        <select id="ordenar">
+            <option value="">Ordenar</option>
+            <option value="title-asc">Título A-Z</option>
+            <option value="title-desc">Título Z-A</option>
+            <option value="price-asc">Precio ↑</option>
+            <option value="price-desc">Precio ↓</option>
+
+        </select>
+    </section>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imagen</th>
+                    <th>Título</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaProductos"></tbody>
+        </table>
+    </main>
+    <footer class="pagination">
+        <button id="prev">Anterior</button>
+        <span id="infoPagina"></span>
+        <button id="next">Siguiente</button>
+    </footer>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

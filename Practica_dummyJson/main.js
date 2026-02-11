@@ -6,7 +6,7 @@ const lista_productos = (lista) => {
     contenedorProductos.innerHTML = "";
 
     if (lista.length == 0) {
-        contenedorProductos.innerHTML ="No se encontraron productos";
+        contenedorProductos.innerHTML = "No se encontraron productos";
         return;
     }
     lista.forEach(productos => {
@@ -84,4 +84,76 @@ if (ContenedorProductoDetalle) {
             });
     }
 }
+const guardarproducto = () => {
+    //creamos las variables de los elementos con los que vamos a interactuar 
+    const titulo = document.getElementById("titulo").value
+    const precio = parseFloat(document.getElementById("precio").value)
+    const categoria = document.getElementById("categoria").value
+    const descripcion = document.getElementById("descripcion").value
+    const resultado = document.getElementById("mensaje-exito")
+
+    //validamos que los elementos no vengann vacios
+    if (!titulo || !precio || !descripcion) {
+        alert("Completa los campos obligatorios")
+        return
+    }
+
+    //creamos el objeto que se va por el body
+    const producto = {
+        title: titulo,
+        price: precio,
+        category: categoria,
+        description: descripcion,
+        thumbnail: 'https://dummyjson.com/image/400x200/008080/ffffff?text' + titulo
+    }
+
+    // hacemos la peticion fetch con el metodo post
+    fetch("https://dummyjson.com/products/add", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(producto)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Respuesta del API", data)
+            resultado.style.display = "block"
+            resultado.innerHTML = `
+        <strong>Producto Agregado correctamente!!!</strong><br>
+        Id Asignado : ${data.id}<br>
+        Nombre : $ {data.title}<br>
+        Precio : $${data.price}.00
+    `})
+
+}
+
+const eliminarproducto = () => {
+    //creamos las variables de los elementos con los que vamos a interactuar 
+    const confirmar = confirm("¿Seguro que deseas eliminar este producto?");
+
+    //Confirmamos la accion
+    if (!confirmar) return;
+
+    fetch(`https://dummyjson.com/products/${id}`, {
+        method: "DELETE"
+    })
+
+        .then(res => res.json())
+        .then(data => {
+            
+            alert("Producto eliminado correctamente");
+
+            // Recargamos la lista
+            fetch('https://dummyjson.com/products/1', {
+                method: 'PUT', 
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    title: 'iPhone Galaxy +1'
+                })
+            })
+                .then(res => res.json())
+                .then(console.log);
+        })
+    }
+
+
 

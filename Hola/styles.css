@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.tarjeta {
+    margin: 20px;
+    border: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 15px;
+}
