@@ -1,0 +1,64 @@
+:root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --accent: #238636;
+    --text: #c9d1d9;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+#profile-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar-profile {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.repo-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.repo-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+.follower-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+@media (max-width: 768px) {
+    .main-layout { grid-template-columns: 1fr; }
+}
