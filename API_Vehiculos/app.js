@@ -2,7 +2,6 @@ const marcaSelect = document.getElementById("marcaSelect");
 const buscarBtn = document.getElementById("buscarBtn");
 const resultados = document.getElementById("resultados");
 const tipoSelect = document.getElementById("tipoSelect");
-const busquedaInput = document.getElementById("busquedaInput");
 const marcaInput = document.getElementById("marcaInput");
 
 let modelosGlobal = [];
@@ -19,18 +18,12 @@ fetch("https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json")
         });
     });
 
-/* Buscar modelos */
+/* Buscar por marca */
 buscarBtn.addEventListener("click", () => {
-
-    let marca = marcaInput.value.trim();
-
-    // Si no escribió, usar la seleccionada
-    if (marca === "") {
-        marca = marcaSelect.value;
-    }
+    const marca = marcaSelect.value || marcaInput.value;
 
     if (!marca) {
-        alert("Selecciona o escribe una marca");
+        resultados.innerHTML = "<p>Selecciona o escribe una marca</p>";
         return;
     }
 
@@ -38,27 +31,22 @@ buscarBtn.addEventListener("click", () => {
         .then(res => res.json())
         .then(data => {
             modelosGlobal = data.Results;
-            aplicarFiltros(); // ahora sí funciona
+            aplicarFiltros();
         })
         .catch(error => {
             console.error("Error al cargar modelos:", error);
         });
 });
 
-/* Aplicar filtros combinados */
+/* Aplicar filtros SOLO por tipo */
 function aplicarFiltros() {
     const tipo = tipoSelect.value;
-    const texto = busquedaInput.value;
 
     let filtrados = modelosGlobal;
 
     if (tipo !== "todos") {
-        filtrados = filtrados.filter(m => obtenerTipo(m.Model_Name) === tipo);
-    }
-
-    if (texto !== "") {
-        filtrados = filtrados.filter(m =>
-            m.Model_Name.toUpperCase().includes(texto)
+        filtrados = filtrados.filter(
+            m => obtenerTipo(m.Model_Name) === tipo
         );
     }
 
@@ -66,11 +54,15 @@ function aplicarFiltros() {
 }
 
 tipoSelect.addEventListener("change", aplicarFiltros);
-busquedaInput.addEventListener("keyup", aplicarFiltros);
 
-/* Mostrar tarjetas */
+/* Mostrar resultados */
 function mostrarModelos(modelos) {
-    resultados.innerHTML = `<h3>Vehículos encontrados</h3>`;
+    resultados.innerHTML = `<h3>Vehículos encontrados (${modelos.length})</h3>`;
+
+    if (modelos.length === 0) {
+        resultados.innerHTML += "<p>No se encontraron vehículos</p>";
+        return;
+    }
 
     const contenedor = document.createElement("div");
     contenedor.classList.add("cards");
@@ -82,7 +74,7 @@ function mostrarModelos(modelos) {
         card.classList.add("card", tipo);
 
         card.innerHTML = `
-            <h4>${icono} ${m.Make_Name}</h4>
+            <h4>${m.Make_Name}</h4>
             <p><strong>Modelo:</strong> ${m.Model_Name}</p>
             <p><strong>Tipo:</strong> ${tipo.toUpperCase()}</p>
         `;
@@ -93,7 +85,7 @@ function mostrarModelos(modelos) {
     resultados.appendChild(contenedor);
 }
 
-/* Tipo de vehículo */
+/* Detectar tipo de vehículo */
 function obtenerTipo(modelo) {
     const nombre = modelo.toLowerCase();
 
@@ -108,4 +100,5 @@ function obtenerTipo(modelo) {
 
     return "auto";
 }
+
 
