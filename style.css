@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f4f6fb;
+    background-color: #869fdf;
     color: #333;
 }
 
@@ -64,16 +64,6 @@ main {
     margin-bottom: 15px;
 }
 
-.badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    background-color: #ede7f6;
-    color: #5e35b1;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
 footer {
     text-align: center;
     padding: 25px 15px;
@@ -81,4 +71,11 @@ footer {
     margin-top: 50px;
     font-size: 0.85rem;
     color: #777;
+}
+h2{
+    font-family: 'Times New Roman', Times, serif;
+}
+h3{
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
 }

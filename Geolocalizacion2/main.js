@@ -20,7 +20,6 @@ if(navigator.geolocation){
             marcador.bindPopup('<b>Estoy aqui...</b><br>Mis corrdenadas son : <br>latitud : '+lat+'<br>longitud : '+lon).openPopup()
 
             //alert(lat+" , "+lon)
-x
         },
         ()=>{}
 
