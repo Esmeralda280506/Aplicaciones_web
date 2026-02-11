@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #7e6bd6, #9db1f2);
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: #7e6bd6;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.header p {
+    margin-top: .5rem;
+    opacity: .9;
+}
+
+/* Contenedor */
+.container {
+    padding: 2rem;
+}
+
+/* Grid general */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Tarjetas */
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 1.2rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+}
+
+.card h4 {
+    color: #3f51b5;
+    margin-bottom: .6rem;
+}
+
+.card p {
+    margin: .3rem 0;
+    font-size: .9rem;
+}
+
+/* Filtros */
+.filtro select,
+.filtro input,
+.filtro button {
+    width: 100%;
+    padding: .6rem;
+    margin-top: .5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: .9rem;
+}
+
+.filtro input {
+    text-transform: uppercase;
+}
+
+.filtro button {
+    background: #7e6bd6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.filtro button:hover {
+    background: #6756c2;
+}
+
+/* Colores por tipo */
+.suv { border-left: 6px solid #4CAF50; }
+.pickup { border-left: 6px solid #FF9800; }
+.van { border-left: 6px solid #2196F3; }
+.deportivo { border-left: 6px solid #E91E63; }
+.auto { border-left: 6px solid #9E9E9E; }
+
+/* Resultados */
+#resultados h3 {
+    color: white;
+    margin-top: 2rem;
+}
+
+.filtro select,
+.filtro input {
+    margin-bottom: .6rem;
+}

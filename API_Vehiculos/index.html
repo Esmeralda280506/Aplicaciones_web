@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>API de Vehículos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>Buscador de Vehículos</h1>
+        <p>Consumo de API pública</p>
+    </header>
+
+    <main class="container">
+
+        <div class="card filtro">
+            <h4>Buscar marca</h4>
+
+            <select id="marcaSelect">
+                <option value="">SELECCIONA UNA MARCA</option>
+            </select>
+
+            <input type="text" id="marcaInput" placeholder="ESCRIBE LA MARCA"
+                oninput="this.value = this.value.toUpperCase()">
+
+            <button id="buscarBtn">Buscar</button>
+        </div>
+
+        <div class="cards filtros">
+
+            <div class="card filtro">
+                <h4>Filtrar por tipo de Vehiculo</h4>
+                <select id="tipoSelect">
+                    <option value="todos">TODOS</option>
+                    <option value="suv">SUV</option>
+                    <option value="pickup">PICKUP</option>
+                    <option value="van">VAN</option>
+                    <option value="deportivo">DEPORTIVO</option>
+                    <option value="auto">AUTO</option>
+                </select>
+            </div>
+
+            <div class="card filtro">
+                <h4>Buscar modelo</h4>
+                <input type="text" id="busquedaInput" placeholder="ESCRIBE EL MODELO"
+                    oninput="this.value = this.value.toUpperCase()">
+            </div>
+
+        </div>
+        
+        <section id="resultados"></section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
