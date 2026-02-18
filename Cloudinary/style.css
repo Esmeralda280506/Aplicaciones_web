@@ -1,17 +1,19 @@
-.drop-zone {
-    border: 2px dashed #ccc;
-    padding: 40px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: 0.3s;
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6ff;
+  text-align: center;
+  padding: 30px;
 }
 
-.drop-zone:hover {
-    border-color: #4f46e5;
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
-.loading {
-    opacity: 0.5;
-    pointer-events: none;
+.preview img,
+.result img {
+  max-width: 300px;
+  margin-top: 15px;
+  border-radius: 10px;
 }
